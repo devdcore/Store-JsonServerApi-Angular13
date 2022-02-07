@@ -1,0 +1,16 @@
+<!-- 
+      {{ quantity$ | async | json }} - Quantity
+      {{ total$ | async | json }} - Total
+      {{ cart$ | async | json }} - Cart -->
+
+
+     <!-- Cantidad - {{ quantityCar }}
+     Total - {{ totalyCar }} -->
+
+      <ng-container *ngIf="{ total:total$ | async, quantity:quantity$ | async } as dataCart">
+            <mat-icon>add_shopping_cart</mat-icon>
+            <ng-container *ngIf="dataCart.total">
+                  {{  dataCart.total | currency}}
+                  ({{ dataCart.quantity }})
+            </ng-container>            
+      </ng-container>
