@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router'
 import { cursoComponent } from './pages/curso/curso.component';
 
 const routes: Routes = [
   { path:'curso', component: cursoComponent },
   { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) },
+  { path: 'checkout', loadChildren: () => import('./pages/checkout/checkout.module').then(m => m.CheckoutModule) },
   { path:'**', redirectTo: '', pathMatch: 'full' }
 ];
 

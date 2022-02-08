@@ -1,0 +1,51 @@
+
+<div class="container">
+    <form action="">
+         <mat-form-field>
+             <input type="text"
+                    matInput
+                    placeholder="Name"
+                    required
+                    [(ngModel)] = "model.name"
+                    name="name"
+                    #name="ngModel">
+                    <mat-error *ngIf="!model.name || !name.valid || name.pristine">
+                        Name is required
+                     </mat-error>
+         </mat-form-field>
+         <mat-radio-group class="form_element">
+             <mat-radio-button 
+             value="pickup"
+             (onchange)="onPickUpDelivery(false)"
+             >Pickup</mat-radio-button>
+             <mat-radio-button 
+             value="delivery"
+             (onchange)="onPickUpDelivery(true)"
+             >Delivery</mat-radio-button>
+         </mat-radio-group>
+         <mat-form-field class="form_element">
+             <input
+             placeholder="Shipping Address"
+             [(ngModel)]="model.shipping"
+             name="shippingAddress"
+             #shippingAddress="ngModel">
+         </mat-form-field>
+         <mat-form-field class="form_element">
+            <input
+            placeholder="City"
+            [(ngModel)]="model.city"
+            name="city"
+            #city="ngModel">
+        </mat-form-field>
+        <mat-form-field class="form_element">
+            <mat-select 
+            name="store"
+            #store="ngModel"
+            [(ngModel)]="model.store">
+                <mat-option [value]="tienda" *ngFor="let tienda of stores">
+                    {{ tienda.name  }} {{ tienda.openingHours }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+</div>
